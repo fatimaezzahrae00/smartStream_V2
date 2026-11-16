@@ -32,3 +32,13 @@ Code HTTP	Signification	Comportement
 - *filter()* =>  La méthode filter() permet de créer un nouveau tableau contenant uniquement les éléments qui passent un test défini dans une fonction de rappel. Elle ne modifie pas le tableau d’origine et ignore les cases vides.
 
 - *API Fetch en JavaScript* => L'API Fetch est une interface moderne et puissante permettant d'effectuer des requêtes HTTP asynchrones en JavaScript. Elle remplace avantageusement l'ancienne méthode XMLHttpRequest en utilisant des promesses, ce qui rend le code plus lisible et maintenable. Fetch est largement utilisé pour récupérer des données depuis des serveurs ou envoyer des informations.
+ 
+
+
+ . import { a } from "./fichier.js" : récupère des exports nommés. Les accolades et le nom doivent être identiques à l'export. Il faut écrire .js.
+
+. element.disabled : désactive ou active un bouton (utilisé pour bloquer l'envoi tant que le formulaire est invalide).
+
+. API : service sur Internet qui renvoie des données. Chaque API a sa propre structure, on la découvre avec console.log(data). RandomUser renvoie un utilisateur aléatoire.
+
+. Array.from() : transforme une liste d'éléments (comme select.options) en vrai tableau.

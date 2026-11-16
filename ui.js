@@ -12,10 +12,14 @@ export function afficher(channels) {
 
                 <img src="${channel.logo}" class="h-10 rounded-md" alt="">
 
-                <div class="flex flex-col gap-1">
-                    <span class="text-white font-semibold">${channel.name}</span>
-                    
-                </div>
+               <div class="flex flex-row items-center gap-2">
+    <span class="text-white font-semibold">${channel.name}</span>
+    <span>
+    <i class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
+       style="color: ${channel.isFavorite ? 'yellow' : 'white'};">
+    </i>
+</span>
+</div>
             </button>
         `;
     });
