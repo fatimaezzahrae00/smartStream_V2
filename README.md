@@ -32,3 +32,4 @@ Code HTTP	Signification	Comportement
 - *filter()* =>  La méthode filter() permet de créer un nouveau tableau contenant uniquement les éléments qui passent un test défini dans une fonction de rappel. Elle ne modifie pas le tableau d’origine et ignore les cases vides.
 
 - *API Fetch en JavaScript* => L'API Fetch est une interface moderne et puissante permettant d'effectuer des requêtes HTTP asynchrones en JavaScript. Elle remplace avantageusement l'ancienne méthode XMLHttpRequest en utilisant des promesses, ce qui rend le code plus lisible et maintenable. Fetch est largement utilisé pour récupérer des données depuis des serveurs ou envoyer des informations.
+# smartStream_V2
