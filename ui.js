@@ -6,23 +6,36 @@ export function afficher(channels) {
     element.innerHTML = "";
 
     channels.forEach((channel) => {
-        element.innerHTML += `
-            <button data-categ="${channel.category}" class="md:hover:bg-blue-600 bg-blue-800 flex flex-row items-center gap-4 rounded-lg p-4">
-                <span class="text-white font-sans">${channel.channelNumber}</span>
+    element.innerHTML += `
+        <button data-categ="${channel.category}"
+            class="md:hover:bg-blue-600 bg-blue-800 flex flex-row items-center gap-4 rounded-lg p-4">
 
-                <img src="${channel.logo}" class="h-10 rounded-md" alt="">
+            <span class="text-white font-sans">
+                ${channel.channelNumber}
+            </span>
 
-               <div class="flex flex-row items-center gap-2">
-    <span class="text-white font-semibold">${channel.name}</span>
-    <span>
-    <i class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
-       style="color: ${channel.isFavorite ? 'yellow' : 'white'};">
-    </i>
-</span>
-</div>
-            </button>
-        `;
-    });
+            <img src="${channel.logo}"
+                class="h-10 w-12 object-contain rounded-md" alt="">
+
+            <span class="text-white font-semibold flex-1 text-center">
+                ${channel.name}
+            </span>
+
+            <div class="flex flex-col items-center gap-2 shrink-0">
+
+                <i class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
+                   style="color: ${channel.isFavorite ? 'yellow' : 'white'};">
+                </i>
+
+                <i class="fa-solid fa-ban text-red-500"></i>
+
+                <i class="fa-solid fa-trash text-white"></i>
+
+            </div>
+
+        </button>
+    `;
+});
 
     const buttons = element.querySelectorAll("button");
     const para = document.getElementById("para");

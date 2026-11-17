@@ -42,3 +42,13 @@ Code HTTP	Signification	Comportement
 . API : service sur Internet qui renvoie des données. Chaque API a sa propre structure, on la découvre avec console.log(data). RandomUser renvoie un utilisateur aléatoire.
 
 . Array.from() : transforme une liste d'éléments (comme select.options) en vrai tableau.
+
+
+   ---Quelle est la différence entre filter() et map() ?
+Réponse :
+
+filter() permet de filtrer un tableau selon une condition et retourne un nouveau tableau.
+
+map() permet de transformer chaque élément d'un tableau et retourne un nouveau tableau.
+
+
