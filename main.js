@@ -31,3 +31,9 @@ section.addEventListener('click', function filterBtns(e) {
 
     afficher(filtered)
 })
+const favoriteBtn = document.getElementById('favorite');
+
+favoriteBtn.addEventListener('click', () => {
+    const favorites = channels.filter(channel => channel.isFavorite === true);
+    afficher(favorites);
+});

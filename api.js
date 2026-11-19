@@ -21,5 +21,16 @@ let loading = document.getElementById('loading');
    }
    
 }
+export async function updateChannel(id, changes) {
+  const res = await fetch(dataApi + "/" + id, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(changes)
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP Error! : ${res.status}`);
+  }
+  return await res.json();
+}
 
  

@@ -1,3 +1,4 @@
+import { updateChannel } from "./api.js"; 
 
 const element = document.getElementById("element");
 const channelImage = document.getElementById("channelImage");
@@ -23,11 +24,11 @@ export function afficher(channels) {
 
             <div class="flex flex-col items-center gap-2 shrink-0">
 
-                <i class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
+                <i data-heart data-id="${channel.id}" class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
                    style="color: ${channel.isFavorite ? 'yellow' : 'white'};">
                 </i>
 
-                <i class="fa-solid fa-ban text-red-500"></i>
+                <i data-interdie class="fa-solid fa-ban text-red-500"></i>
 
                 <i class="fa-solid fa-trash text-white"></i>
 
@@ -51,5 +52,25 @@ export function afficher(channels) {
 </video-player>`
             para.textContent = channels[index].name;
         });
+
+        
+        const heart = button.querySelector("[data-heart]");
+        heart.addEventListener("click", async (e) => {
+            e.stopPropagation(); 
+
+            const channel = channels[index];
+            const newValue = !channel.isFavorite;
+
+            try {
+                await updateChannel(channel.id, { isFavorite: newValue }); 
+                channel.isFavorite = newValue;                              
+                afficher(channels);                                         
+            } catch (error) {
+                console.error(error);
+                alert("Impossible de modifier le favori.");
+            }
+        });
     });
+
+  
 }
