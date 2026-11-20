@@ -78,3 +78,24 @@ const doubledNumbers = numbers.map(number => number * 2);
 
 console.log(evenNumbers);  // [2, 4]
 console.log(doubledNumbers); // [2, 4, 6, 8, 10]
+- *API Fetch en JavaScript* => L'API Fetch est une interface moderne et puissante permettant d'effectuer des requêtes HTTP asynchrones en JavaScript. Elle remplace avantageusement l'ancienne méthode XMLHttpRequest en utilisant des promesses, ce qui rend le code plus lisible et maintenable. Fetch est largement utilisé pour récupérer des données depuis des serveurs ou envoyer des informations.
+# smartStream_V2
+
+DOCUMENTATION 
+1. GET – Récupérer des données
+    GET sert à lire ou consulter des informations depuis le serveur.
+
+2. POST – Ajouter des données
+    POST sert à créer un nouvel élément.
+
+3. PUT – Modifier toutes les données
+    PUT sert à remplacer complètement une ressource existante.
+
+4. PATCH – Modifier une partie des données
+    PATCH sert à modifier seulement un ou plusieurs champs sans toucher aux autres.
+
+5. DELETE – Supprimer des données
+    DELETE sert à supprimer une ressource.
+
+
+
