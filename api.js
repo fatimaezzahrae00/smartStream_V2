@@ -32,5 +32,13 @@ export async function updateChannel(id, changes) {
   }
   return await res.json();
 }
-
+export async function deleteChannel(id) {
+  const res = await fetch(dataApi + "/" + id, {
+    method: "DELETE"           
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP Error! : ${res.status}`);
+  }
+  return await res.json();
+}
  

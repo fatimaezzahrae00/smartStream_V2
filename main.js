@@ -2,7 +2,7 @@ import { getData } from "./api.js";
 import { afficher } from "./ui.js";
 import { initSearch } from "./search.js";
 const channels = await getData();
-afficher(channels.filter(channel => !channel.isBlacklisted)); // CHANGED
+afficher(channels.filter(channel => !channel.isBlacklisted)); 
 initSearch(channels);
 
 
@@ -47,4 +47,12 @@ const blacklistBtn = document.getElementById('blacklist');
 blacklistBtn.addEventListener('click', () => {
     const blacklisted = channels.filter(channel => channel.isBlacklisted === true);
     afficher(blacklisted);
+});
+
+document.addEventListener("channel-deleted", (e) => {
+    const position = channels.findIndex(channel => channel.id === e.detail);
+    if (position !== -1) {
+        channels.splice(position, 1);   
+    }
+    afficher(channels.filter(channel => channel.isBlacklisted));
 });

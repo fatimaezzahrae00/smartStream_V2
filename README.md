@@ -52,3 +52,7 @@ filter() permet de filtrer un tableau selon une condition et retourne un nouveau
 map() permet de transformer chaque élément d'un tableau et retourne un nouveau tableau.
 
 
+
+
+
+

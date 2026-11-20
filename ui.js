@@ -1,4 +1,4 @@
-import { updateChannel } from "./api.js"; 
+import { updateChannel, deleteChannel } from "./api.js"; 
 
 const element = document.getElementById("element");
 const channelImage = document.getElementById("channelImage");
@@ -24,7 +24,7 @@ export function afficher(channels) {
 
             <div class="flex flex-col items-center gap-2 shrink-0">
 
-                <i data-heart data-id="${channel.id}" class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
+                <i data-heart class="${channel.isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"
                    style="color: ${channel.isFavorite ? 'yellow' : 'white'};">
                 </i>
 
@@ -32,7 +32,9 @@ export function afficher(channels) {
                     ? `<span data-restore class="text-green-400 text-sm">Restaurer</span>`
                     : `<i data-ban class="fa-solid fa-ban text-red-500"></i>`}
 
-                <i class="fa-solid fa-trash text-white"></i>
+                ${channel.isBlacklisted
+                    ? `<i data-trash class="fa-solid fa-trash text-white"></i>`
+                    : ``}
 
             </div>
 
@@ -69,32 +71,12 @@ export function afficher(channels) {
                 afficher(channels);                                         
             } catch (error) {
                 console.error(error);
-                // alert("Impossible de modifier le favori.");
+              
             }
         });
 
-
-  
-
-// const interdit = button.querySelector("[data-interdie]");
-//         interdit.addEventListener("click", async (e) => {
-//             e.stopPropagation(); 
-//             const channe = channels[index];
-//             console.log(channe);
-//             // const channel = e.target.closest("[data-interdie]");
-//             // const id=channel.dataset.id ;
-//             const newValue = !channel.isBlacklisted;
-
-//             try {
-//                 await updateChannel(id, { isBlacklisted: newValue }); 
-//                 channel.isBlacklisted = newValue;
-//                 afficher(channels);
-//             } catch (error) {
-//                 console.error(error);
-//                 alert("Impossible de modifier le favori.");
-//             }
-//         });
- const ban = button.querySelector("[data-ban]");
+        
+        const ban = button.querySelector("[data-ban]");
         if (ban) {
             ban.addEventListener("click", async (e) => {
                 e.stopPropagation();
@@ -102,17 +84,17 @@ export function afficher(channels) {
                 const channel = channels[index];
 
                 try {
-                    await updateChannel(channel.id, { isBlacklisted: true }); 
-                    channel.isBlacklisted = true;                              
-                    afficher(channels.filter(c => !c.isBlacklisted));          
+                    await updateChannel(channel.id, { isBlacklisted: true });
+                    channel.isBlacklisted = true;
+                    afficher(channels.filter(c => !c.isBlacklisted));
                 } catch (error) {
                     console.error(error);
-                    // alert("Impossible de cacher la chaîne.");
+                    
                 }
             });
         }
 
-        // NEW: "Restaurer" (put the channel back)
+        
         const restore = button.querySelector("[data-restore]");
         if (restore) {
             restore.addEventListener("click", async (e) => {
@@ -121,15 +103,41 @@ export function afficher(channels) {
                 const channel = channels[index];
 
                 try {
-                    await updateChannel(channel.id, { isBlacklisted: false }); 
-                    channel.isBlacklisted = false;                             
-                    afficher(channels.filter(c => c.isBlacklisted));           
+                    await updateChannel(channel.id, { isBlacklisted: false });
+                    channel.isBlacklisted = false;
+                    afficher(channels.filter(c => c.isBlacklisted));
                 } catch (error) {
                     console.error(error);
-                    // alert("Impossible de restaurer la chaîne.");
+                    
                 }
             });
         }
+
+        
+        const trash = button.querySelector("[data-trash]");
+        if (trash) {
+            trash.addEventListener("click", async (e) => {
+                e.stopPropagation();
+
+                const channel = channels[index];
+
+                
+                const ok = confirm(`Supprimer "${channel.name}" pour toujours ?`);
+                if (!ok) return; 
+
+                try {
+                    
+                    await deleteChannel(channel.id);
+
+                    
+                    document.dispatchEvent(
+                        new CustomEvent("channel-deleted", { detail: channel.id })
+                    );
+                } catch (error) {
+                    console.error(error);
+                    alert("Impossible de supprimer la chaîne.");
+                }
             });
+        }
+    });
 }
-    
