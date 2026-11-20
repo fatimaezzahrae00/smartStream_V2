@@ -69,7 +69,7 @@ export function afficher(channels) {
                 afficher(channels);                                         
             } catch (error) {
                 console.error(error);
-                alert("Impossible de modifier le favori.");
+                // alert("Impossible de modifier le favori.");
             }
         });
 
@@ -107,7 +107,7 @@ export function afficher(channels) {
                     afficher(channels.filter(c => !c.isBlacklisted));          
                 } catch (error) {
                     console.error(error);
-                    alert("Impossible de cacher la chaîne.");
+                    // alert("Impossible de cacher la chaîne.");
                 }
             });
         }
@@ -126,7 +126,7 @@ export function afficher(channels) {
                     afficher(channels.filter(c => c.isBlacklisted));           
                 } catch (error) {
                     console.error(error);
-                    alert("Impossible de restaurer la chaîne.");
+                    // alert("Impossible de restaurer la chaîne.");
                 }
             });
         }

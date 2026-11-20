@@ -12,26 +12,31 @@
 <body class="bg-slate-950 text-white min-h-screen flex flex-col">
     <header class="flex justify-between items-center px-6 py-3 border-b border-white/10 bg-slate-950">
         <img class="rounded-lg" src="play.jpg" alt="logo" height="50px" width="40px">
-        <nav class=" flex items-center gap-4 ">
-            <button class="md:hover:bg-blue-600 bg-blue-800 text-red-300 rounded-lg px-2 py-1">En direct</button>
-            <button class="md:hover:bg-blue-600 bg-blue-800 text-red-300 rounded-lg px-2 py-1">Sports</button>
-            <button class="md:hover:bg-blue-600 bg-blue-800 text-red-300 rounded-lg px-2 py-1">Documentaires</button>
-    
-        </nav>
+       <div class="flex flex-row gap-4">
+        <button id="favorite"  class= "md:hover:bg-yellow-600 bg-yellow-500 text-white rounded-lg px-2 py-1"> Favorite</button>
+        
+        <button id="blacklist" class="md:hover:bg-red-600 bg-red-800 text-white rounded-lg px-2 py-1">Liste Noire</button>
+        </div>
 
     </header>
     <div class="grid grid-cols-[1fr_4fr]">
-    <aside class="flex flex-col border-r border-gray-800 gap-4 p-4">
+    <aside class="flex flex-col gap-3 border-r border-gray-800 gap-4 p-4">
         <p class="text-xl font-bold text-blue-700">Guide TV</p>
-        
-        <div class="flex items-end justify-between">
-        <h2 class="text-md font-bold md:text-md lg:text-lg text-white">Chaines en direct</h2>
-        <span class="text-sm md:text-md lg:text-md text-gray-200">8 Chaines</span>
-        </div>
-        <label></label>
-       <input id="filterInput" type="text"
-       placeholder="Rechercher une chaine .. "
-       class="border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-white">
+        <div class="flex items-center gap-2 w-full">
+    <input
+        id="filterInput"
+        type="text"
+        placeholder="Rechercher une chaîne..."
+        class="min-w-0 flex-1 border border-gray-700 bg-slate-900 rounded-lg px-3 py-3 outline-none focus:border-blue-500 text-white"
+    >
+
+    <button
+        id="addChannel"
+        class="shrink-0 flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg px-3 py-3 transition">
+        <i class="fa-solid fa-plus"></i>
+        Ajouter
+    </button>
+</div>
         <div class="flex gap-2" id="btnscontainer">
             <button id="all" class="filter-btn md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg px-2 py-1">Toutes</button>
             <button id="Sport" class="filter-btn md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg px-2 py-1">Sports</button>
@@ -39,8 +44,7 @@
             <button id="Enfant" class="filter-btn md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg px-2 py-1">Enfant</button>
             
         </div>
-        <button id="favorite"  class= "md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg px-2 py-1"> Favorite</button>
-        <button id="blacklist" class="md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg px-2 py-1">Liste Noire</button>
+        
         <div id="element" class="flex flex-col gap-2 overflow-auto h-120" >
               <!-- <button class="md:hover:bg-blue-600 bg-blue-800 text-white rounded-lg p-4">
                 <span>Discovery ID FHD</span>
