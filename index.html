@@ -9,6 +9,7 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@videojs/cdn@10.4.0/media/hlsjs-video.js"></script>
     <title>Smart Stream</title>
 </head>
+
 <body class="bg-slate-950 text-white min-h-screen flex flex-col">
     <header class="flex justify-between items-center px-6 py-3 border-b border-white/10 bg-slate-950">
         <img class="rounded-lg" src="play.jpg" alt="logo" height="50px" width="40px">
@@ -32,7 +33,7 @@
 
     <button
         id="addChannel"
-        class="shrink-0 flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg px-3 py-3 transition">
+        class="shrink-0 flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg px-3 py-3 transition cursor-pointer">
         <i class="fa-solid fa-plus"></i>
         Ajouter
     </button>
@@ -88,6 +89,70 @@
         </div>
         </aside>
     <main class="p-4 ">
+        
+<div id="form" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 p-4">
+
+    <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-xl font-bold text-gray-800">
+                Ajouter une chaîne
+            </h2>
+            <button class="text-2xl text-gray-500 hover:text-red-600">
+                
+            </button>
+        </div>
+
+        <form class="space-y-4">
+
+            <div>
+                <label class="mb-1 block text-sm font-semibold text-gray-700">
+                    Numéro
+                </label>
+                <input type="text" placeholder="Ex: 2M"
+                    class="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+            </div>
+
+            <div>
+                <label class="mb-1 block text-sm font-semibold text-gray-700">
+                    Nom
+                </label>
+                <input type="text" placeholder="Ex: 2M"
+                    class="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+            </div>
+
+            <div>
+                <label class="mb-1 block text-sm font-semibold text-gray-700">
+                    Lien du logo
+                </label>
+                <input type="url" placeholder="https://..."
+                    class="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+            </div>
+
+            <div>
+                <label class="mb-1 block text-sm font-semibold text-gray-700">
+                    Lien de l'image
+                </label>
+                <input type="url" placeholder="https://..."
+                    class="w-full rounded-lg border border-gray-300 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+            </div>
+
+            <div class="flex gap-3 pt-3">
+                <button type="button"
+                    class="w-1/2 rounded-lg border border-gray-300 py-3 font-semibold text-gray-700 hover:bg-gray-100">
+                    Annuler
+                </button>
+
+                <button type="submit"
+                    class="w-1/2 rounded-lg bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700">
+                    Ajouter
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
         <!-- <small class="bg-red-600 rounded-md absolute px-2 py-1 m-1">Live</small> -->
         <div id="video">
         </div>

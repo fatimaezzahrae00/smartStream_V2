@@ -141,3 +141,11 @@ export function afficher(channels) {
         }
     });
 }
+
+const hidden = document.getElementById('addChannel')
+const form = document.getElementById('form')
+    hidden.addEventListener('click',()=>{
+        form.classList.add('flex')
+        form.classList.remove('hidden')
+        })
+        
